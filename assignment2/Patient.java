@@ -13,7 +13,7 @@ public class Patient implements Comparable<Patient> {
     public LocalDateTime ArriveTime;
     public int TreatmentTime;
     public LocalDateTime LeaveTime;
-    public static final int MAX_Treatment = 120;
+    public static final int MAX_Treatment = 50;
     public static final int MAX_Urgency = 10;
     /**
      * Creates a new patient given the patient's ArriveTime, condition and treatment time.

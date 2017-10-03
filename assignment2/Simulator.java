@@ -138,8 +138,9 @@ public class Simulator {
             }
 
             CurrentTime = LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS);
-
-            RandomPatient = generator.newPatient(RandomPatient.ArriveTime, Patient.MAX_Treatment);
+            if(RandomPatient.ArriveTime.isBefore(EndTime)){
+                RandomPatient = generator.newPatient(RandomPatient.ArriveTime, Patient.MAX_Treatment);
+            }
             if(!OperatePatientQueue.isEmpty() && CurrentTime.isAfter(OperatePatientQueue.front().LeavingTime)){
                 printInfo(OperatePatientQueue.front(), outPatientInfo);
                 getOutofHospital();
