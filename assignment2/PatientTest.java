@@ -8,7 +8,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Created by bikegcy on 10/2/17.
+ * Created by xwenfei on 10/2/17.
  */
 public class PatientTest {
 
