@@ -32,11 +32,13 @@ public class GeneratorTest {
         Patient randomPatient = generator.PatientGenerator(StartTime, Patient.MAX_TIME);
         for(int i = 0; i < 50; i++){
             pqueue.insert(randomPatient);
-            System.out.println(randomPatient.UrgencyLevel);
-            System.out.println(randomPatient.ArriveTime);
-            System.out.println(randomPatient.TreatmentTime + "\n");
+            System.out.println("Urgency level: \t" + randomPatient.UrgencyLevel);
+            System.out.println("Arrival time： \t" + randomPatient.ArriveTime);
+            System.out.println("TreatmentTime: \t" + randomPatient.TreatmentTime);
+            System.out.println("Leaving time: \t" + randomPatient.LeaveTime + "\n");
             int duration = randomPatient.TreatmentTime;
-            randomPatient = generator.PatientGenerator(randomPatient.ArriveTime.plusMinutes(duration), duration);
+            int randomDuration = random.nextInt(duration);
+            randomPatient = generator.PatientGenerator(randomPatient.ArriveTime.plusMinutes(randomDuration), duration);
         }
 
     }
