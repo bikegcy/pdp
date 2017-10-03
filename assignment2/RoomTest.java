@@ -25,9 +25,9 @@ public class RoomTest {
         room3 = new Room();
         RoomQueue = new MyPriorityQueue<Room>();
 
-        room1.setTimeOccupied(30);
-        room2.setTimeOccupied(20);
-        room3.setTimeOccupied(40);
+        room1.updateTimeOccupied(30);
+        room2.updateTimeOccupied(20);
+        room3.updateTimeOccupied(40);
 
         RoomQueue.insert(room1);
         RoomQueue.insert(room2);

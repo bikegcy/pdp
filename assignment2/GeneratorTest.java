@@ -2,6 +2,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -27,18 +28,18 @@ public class GeneratorTest {
         MyPriorityQueue<Patient> pqueue = new MyPriorityQueue<Patient>();
 
         Random random = new Random();
-        LocalDateTime StartTime = LocalDateTime.now();
+        LocalDateTime StartTime = LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS);
 
-        Patient randomPatient = generator.PatientGenerator(StartTime, Patient.MAX_TIME);
+        Patient randomPatient = generator.newPatient(StartTime, Patient.MAX_Treatment);
         for(int i = 0; i < 50; i++){
             pqueue.insert(randomPatient);
             System.out.println("Urgency level: \t" + randomPatient.UrgencyLevel);
-            System.out.println("Arrival time： \t" + randomPatient.ArriveTime);
+            System.out.println("Arrival time: \t" + randomPatient.ArriveTime);
             System.out.println("TreatmentTime: \t" + randomPatient.TreatmentTime);
             System.out.println("Leaving time: \t" + randomPatient.LeaveTime + "\n");
             int duration = randomPatient.TreatmentTime;
             int randomDuration = random.nextInt(duration);
-            randomPatient = generator.PatientGenerator(randomPatient.ArriveTime.plusMinutes(randomDuration), duration);
+            randomPatient = generator.newPatient(randomPatient.ArriveTime.plusMinutes(randomDuration), duration);
         }
 
     }

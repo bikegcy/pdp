@@ -22,7 +22,7 @@ public class Patient implements Comparable<Patient> {
      * TreatmentTime is in the unit of minutes, no longer than MAX_TIME minutes
      *
      * @param ArriveTime the patient's arrival time
-     * @param UrgencyLevel the urgency of patient’s condition
+     * @param UrgencyLevel the urgency of patient's condition
      * @param TreatmentTime how long the treatment will take
      */
     public Patient(int UrgencyLevel, LocalDateTime ArriveTime, int TreatmentTime)throws Exception {

@@ -10,7 +10,7 @@ public class Room implements Comparable<Room> {
         this.TimeOccupied = 0;
     }
 
-    public void setTimeOccupied(int TreatmentTime){
+    public void updateTimeOccupied(int TreatmentTime){
         this.TimeOccupied = this.TimeOccupied + TreatmentTime;
     }
 
