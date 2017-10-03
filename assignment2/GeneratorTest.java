@@ -26,12 +26,6 @@ public class GeneratorTest {
         MyPriorityQueue<Patient> pqueue = new MyPriorityQueue<Patient>();
 
         Random random = new Random();
-        int test = random.nextInt(22);
-        System.out.println(test);
-        test = random.nextInt(22);
-        System.out.println(test);
-        test = random.nextInt(22);
-        System.out.println(test);
 
         Patient randomPatient = generator.PatientGenerator();
         for(int i = 0; i < 50; i++){
