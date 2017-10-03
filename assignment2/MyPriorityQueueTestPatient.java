@@ -21,8 +21,8 @@ public class MyPriorityQueueTestPatient {
     public void setUp() throws Exception {
 
         MyPriorityQueue<Patient> pqueue = new MyPriorityQueue<Patient>();
-        Patient patient1 = new Patient(3, LocalDateTime.of(2017, 3, 12, 10, 20, 30), 340 );
-        Patient patient2 = new Patient(3, LocalDateTime.of(2017, 3, 12, 10, 20, 30), 330 );
+        Patient patient1 = new Patient(3, LocalDateTime.of(2017, 3, 12, 10, 20, 30), 34 );
+        Patient patient2 = new Patient(3, LocalDateTime.of(2017, 3, 12, 10, 20, 30), 33 );
 
     }
 
@@ -30,7 +30,7 @@ public class MyPriorityQueueTestPatient {
     public void insert() throws Exception {
 
         MyPriorityQueue<Patient> pqueue = new MyPriorityQueue<Patient>();
-        Patient patient1 = new Patient(3, LocalDateTime.of(2017, 3, 12, 10, 20, 30), 340 );
+        Patient patient1 = new Patient(3, LocalDateTime.of(2017, 3, 12, 10, 20, 30), 34);
         pqueue.insert(patient1);
 
     }
@@ -39,8 +39,8 @@ public class MyPriorityQueueTestPatient {
     public void remove() throws Exception {
 
         MyPriorityQueue<Patient> pqueue = new MyPriorityQueue<Patient>();
-        Patient patient1 = new Patient(4, LocalDateTime.of(2017, 4, 12, 10, 20, 30), 340 );
-        Patient patient2 = new Patient(3, LocalDateTime.of(2017, 3, 12, 10, 20, 30), 240 );
+        Patient patient1 = new Patient(4, LocalDateTime.of(2017, 4, 12, 10, 20, 30), 34 );
+        Patient patient2 = new Patient(3, LocalDateTime.of(2017, 3, 12, 10, 20, 30), 24 );
         pqueue.insert(patient1);
         pqueue.insert(patient2);
         //assertEquals(pqueue.remove(), patient2);
@@ -52,15 +52,15 @@ public class MyPriorityQueueTestPatient {
     public void front() throws Exception {
 
         MyPriorityQueue<Patient> pqueue = new MyPriorityQueue<Patient>();
-        Patient patient1 = new Patient(5, LocalDateTime.of(2017, 3, 12, 10, 20, 30), 340 );
-        Patient patient2 = new Patient(3, LocalDateTime.of(2017, 3, 12, 10, 34, 30), 320 );
+        Patient patient1 = new Patient(5, LocalDateTime.of(2017, 3, 12, 10, 20, 30), 34 );
+        Patient patient2 = new Patient(3, LocalDateTime.of(2017, 3, 12, 10, 34, 30), 32 );
 
         pqueue.insert(patient1);
         pqueue.insert(patient2);
 
         assertEquals(pqueue.front(), patient2);
 
-        Patient patient3 = new Patient(3, LocalDateTime.of(2017, 3, 12, 10, 15, 30), 330 );
+        Patient patient3 = new Patient(3, LocalDateTime.of(2017, 3, 12, 10, 15, 30), 33 );
         pqueue.insert(patient3);
         assertEquals(pqueue.front(), patient3);
     }
@@ -70,7 +70,7 @@ public class MyPriorityQueueTestPatient {
         MyPriorityQueue<Patient> pqueue = new MyPriorityQueue<Patient>();
         assertEquals(pqueue.isEmpty(), true);
 
-        Patient patient1 = new Patient(3, LocalDateTime.of(2017, 4, 12, 10, 20, 30), 340 );
+        Patient patient1 = new Patient(3, LocalDateTime.of(2017, 4, 12, 10, 20, 30), 34 );
         pqueue.insert(patient1);
         assertEquals(pqueue.isEmpty(), false);
 
@@ -83,9 +83,9 @@ public class MyPriorityQueueTestPatient {
     public void testForwardTraversal() throws Exception {
 
         MyPriorityQueue<Patient> pqueue = new MyPriorityQueue<Patient>();
-        Patient patient1 = new Patient(5, LocalDateTime.of(2017, 3, 12, 10, 20, 30), 340 );
-        Patient patient2 = new Patient(3, LocalDateTime.of(2017, 3, 12, 10, 34, 30), 320 );
-        Patient patient3 = new Patient(3, LocalDateTime.of(2017, 3, 12, 10, 15, 30), 240 );
+        Patient patient1 = new Patient(5, LocalDateTime.of(2017, 3, 12, 10, 20, 30), 34 );
+        Patient patient2 = new Patient(3, LocalDateTime.of(2017, 3, 12, 10, 34, 30), 32 );
+        Patient patient3 = new Patient(3, LocalDateTime.of(2017, 3, 12, 10, 15, 30), 24 );
         pqueue.insert(patient1);
         pqueue.insert(patient2);
         pqueue.insert(patient3);
@@ -110,9 +110,9 @@ public class MyPriorityQueueTestPatient {
     public void testReverseTraversal() throws Exception {
 
         MyPriorityQueue<Patient> pqueue = new MyPriorityQueue<Patient>();
-        Patient patient1 = new Patient(4, LocalDateTime.of(2017, 3, 12, 10, 20, 30), 340 );
-        Patient patient2 = new Patient(2, LocalDateTime.of(2017, 3, 12, 10, 34, 30), 320 );
-        Patient patient3 = new Patient(4, LocalDateTime.of(2017, 3, 12, 10, 20, 31), 240 );
+        Patient patient1 = new Patient(4, LocalDateTime.of(2017, 3, 12, 10, 20, 30), 34 );
+        Patient patient2 = new Patient(2, LocalDateTime.of(2017, 3, 12, 10, 34, 30), 32 );
+        Patient patient3 = new Patient(4, LocalDateTime.of(2017, 3, 12, 10, 20, 20), 24 );
         pqueue.insert(patient1);
         pqueue.insert(patient2);
         pqueue.insert(patient3);
