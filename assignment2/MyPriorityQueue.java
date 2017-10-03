@@ -5,27 +5,27 @@
 
 import java.util.*;
 
-public class MyPriorityQueue<T extends Comparable<T>>{
+public class MyPriorityQueue<E extends Comparable<E>>{
 
-    public ArrayList<T> PQ;
+    public ArrayList<E> PQ;
 
     /**
      * Empty constructor
      */
     public MyPriorityQueue(){
-        PQ = new ArrayList<T>();
+        PQ = new ArrayList<E>();
     }
 
     /**
      * insert() inserts an patient in the queue.
      */
-    public void insert(T e) {
+    public void insert(E e) {
         if (e == null) {
             throw new IllegalArgumentException("item to be inserted is null");
         } else {
             PQ.add(e);
-            PQ.sort(new Comparator<T>(){
-                public int compare(T e1, T e2) {
+            PQ.sort(new Comparator<E>(){
+                public int compare(E e1, E e2) {
                     return e1.compareTo(e2);
                 }
             });
@@ -33,25 +33,25 @@ public class MyPriorityQueue<T extends Comparable<T>>{
     }
 
     /**
-     *  remove() removes the first item from the queue.  If the
+     * @return the first item from the queue and remove it.  If the
      *  list is empty, do nothing.
      */
-    public T remove(){
+    public E remove(){
         if (PQ == null) {
             return null;
         }
         else{
-            T removed = PQ.get(0);
+            E removed = PQ.get(0);
             PQ.remove(0);
             return removed;
         }
     }
 
     /**
-     *  front() returns the first item from the queue.  If the
+     * @return the first item from the queue.  If the
      *  list is empty, do nothing.
      */
-    public T front(){
+    public E front(){
         if(PQ == null){
             return null;
         }else{
@@ -60,7 +60,7 @@ public class MyPriorityQueue<T extends Comparable<T>>{
     }
 
     /**
-     *  isEmpty() returns if the queue is empty.  If the
+     * @return if the queue is empty.  If the
      *  list is empty, return true, else return false.
      */
     public boolean isEmpty(){
@@ -88,7 +88,7 @@ public class MyPriorityQueue<T extends Comparable<T>>{
             throw new NoSuchElementException("the queue is empty");
         }else{
             int num = PQ.size() - 1;
-            ArrayList<T> reverseT = new ArrayList<T>();
+            ArrayList<E> reverseT = new ArrayList<E>();
             while(num >= 0){
                 reverseT.add(PQ.get(num));
                 num--;
