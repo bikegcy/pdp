@@ -20,9 +20,9 @@ public class Generator {
      */
     public Patient newPatient(LocalDateTime localTime, int duration) throws Exception {
         Random random = new Random();
-        int Urgency = random.nextInt(Patient.MAX_Urgency + 1);
-        int RandomTreatment = random.nextInt(Patient.MAX_Treatment);
-        int minuteDuration = random.nextInt((duration + 1) / 5);
+        int Urgency = random.nextInt(Patient.MAX_Urgency) + 1;
+        int RandomTreatment = random.nextInt(Patient.MAX_Treatment) + 1;
+        int minuteDuration = random.nextInt((duration / 5)) + 1;
 
         LocalDateTime RandomTime = localTime.plusMinutes(minuteDuration);
         Patient RandomPatient = new Patient(Urgency, RandomTime, RandomTreatment);
