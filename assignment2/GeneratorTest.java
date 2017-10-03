@@ -1,6 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDateTime;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -26,11 +27,13 @@ public class GeneratorTest {
         MyPriorityQueue<Patient> pqueue = new MyPriorityQueue<Patient>();
 
         Random random = new Random();
+        LocalDateTime StartTime = LocalDateTime.now();
 
-        Patient randomPatient = generator.PatientGenerator();
+        Patient randomPatient = generator.PatientGenerator(StartTime, 480);
         for(int i = 0; i < 50; i++){
             pqueue.insert(randomPatient);
-            randomPatient = generator.PatientGenerator();
+            int duration = randomPatient.TreatmentTime;
+            randomPatient = generator.PatientGenerator(randomPatient.ArriveTime.plusMinutes(duration), duration);
         }
 
         List<Patient> forward;
