@@ -7,7 +7,6 @@ import java.util.Random;
  * Generate random patient data
  */
 public class Generator {
-
     /**
      * empty constructor
      */
@@ -19,19 +18,13 @@ public class Generator {
      * @return the random generated patient
      * only create the patient in day 01/10/2017
      */
-    public Patient PatientGenerator(LocalDateTime localTime, int TreatmentTime) throws Exception {
+    public Patient PatientGenerator(LocalDateTime localTime, int duration) throws Exception {
         Random random = new Random();
         int Urgency = random.nextInt(11);
         int RandomTreatment = random.nextInt(Patient.MAX_TIME);
+        int minuteDuration = random.nextInt(duration + 1);
 
-        //only generate the patient on 01/10/2017
-        int year = 2017;
-        int month = 10;
-        int day = 1;
-        int minute = random.nextInt(TreatmentTime);
-
-        LocalDateTime RandomTime = localTime.plusMinutes(minute);
-
+        LocalDateTime RandomTime = localTime.plusMinutes(minuteDuration);
         Patient RandomPatient = new Patient(Urgency, RandomTime, RandomTreatment);
         return RandomPatient;
     }
