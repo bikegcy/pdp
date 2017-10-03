@@ -1,0 +1,24 @@
+
+/**
+ * created by xwenfei at 09/28/17
+ */
+
+public class Room implements Comparable<Room> {
+    public int TimeOccupied;
+
+    public Room(){
+        this.TimeOccupied = 0;
+    }
+
+    public void setTimeOccupied(int TreatmentTime){
+        this.TimeOccupied = this.TimeOccupied + TreatmentTime;
+    }
+
+
+    public int compareTo(Room room) {
+        if(room == null){
+            throw new IllegalArgumentException("room to compare is null");
+        }
+        return this.TimeOccupied - room.TimeOccupied;
+    }
+}
