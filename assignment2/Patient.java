@@ -13,7 +13,8 @@ public class Patient implements Comparable<Patient> {
     public LocalDateTime ArriveTime;
     public int TreatmentTime;
     public LocalDateTime LeaveTime;
-    public static final int MAX_TIME = 120;
+    public static final int MAX_Treatment = 120;
+    public static final int MAX_Urgency = 10;
     /**
      * Creates a new patient given the patient's ArriveTime, condition and treatment time.
      * Use LocalDateTime as date to mark time
@@ -25,7 +26,7 @@ public class Patient implements Comparable<Patient> {
      * @param TreatmentTime how long the treatment will take
      */
     public Patient(int UrgencyLevel, LocalDateTime ArriveTime, int TreatmentTime)throws Exception {
-        if(UrgencyLevel < 0 || UrgencyLevel > 10){
+        if(UrgencyLevel < 0 || UrgencyLevel > MAX_Urgency){
             throw new IllegalArgumentException("patient urgency must be 0 - 10");
         }
         this.UrgencyLevel = UrgencyLevel;
@@ -35,7 +36,7 @@ public class Patient implements Comparable<Patient> {
         }
         this.ArriveTime = ArriveTime;
 
-        if(TreatmentTime > MAX_TIME){
+        if(TreatmentTime > MAX_Treatment){
             throw new IllegalArgumentException("Treatment time illegal");
         }
         this.TreatmentTime = TreatmentTime;
