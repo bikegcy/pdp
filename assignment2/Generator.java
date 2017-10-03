@@ -16,7 +16,7 @@ public class Generator {
 
     /**
      * @return the random generated patient
-     * only create the patient in day 01/10/2017
+     * given a start time and duration, generate a time that is starttime + (0, duration)
      */
     public Patient PatientGenerator(LocalDateTime localTime, int duration) throws Exception {
         Random random = new Random();
