@@ -23,7 +23,6 @@ public class Patient implements Comparable<Patient> {
      * @param UrgencyLevel the urgency of patient’s condition
      * @param TreatmentTime how long the treatment will take
      */
-
     public Patient(int UrgencyLevel, LocalDateTime ArriveTime, int TreatmentTime)throws Exception {
         if(UrgencyLevel < 0 || UrgencyLevel > 10){
             throw new IllegalArgumentException("patient urgency must be 0 - 10");
@@ -41,14 +40,23 @@ public class Patient implements Comparable<Patient> {
         this.TreatmentTime = TreatmentTime;
     }
 
+    /**
+     * @return the patient's arrival time
+     */
     public LocalDateTime getArriveTime(){
         return this.ArriveTime;
     }
 
+    /**
+     * @return the patient's urgency
+     */
     public int getUrgencyLevel(){
         return this.UrgencyLevel;
     }
 
+    /**
+     * @return the patient's treatment time
+     */
     public int getTreatmentTime(){
         return this.TreatmentTime;
     }
