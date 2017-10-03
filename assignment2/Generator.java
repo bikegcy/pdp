@@ -1,3 +1,4 @@
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Random;
 
@@ -18,20 +19,18 @@ public class Generator {
      * @return the random generated patient
      * only create the patient in day 01/10/2017
      */
-    public Patient PatientGenerator() throws Exception {
+    public Patient PatientGenerator(LocalDateTime localTime, int TreatmentTime) throws Exception {
         Random random = new Random();
         int Urgency = random.nextInt(11);
+        int RandomTreatment = random.nextInt(Patient.MAX_TIME);
 
         //only generate the patient on 01/10/2017
         int year = 2017;
         int month = 10;
         int day = 1;
-        int hour = random.nextInt(24);
-        int minute = random.nextInt(60);
-        int second = random.nextInt(60);
-        LocalDateTime RandomTime = LocalDateTime.of(year, month, day, hour, minute, second);
+        int minute = random.nextInt(TreatmentTime);
 
-        int RandomTreatment = random.nextInt(Patient.MAX_TIME);
+        LocalDateTime RandomTime = localTime.plusMinutes(minute);
 
         Patient RandomPatient = new Patient(Urgency, RandomTime, RandomTreatment);
         return RandomPatient;
