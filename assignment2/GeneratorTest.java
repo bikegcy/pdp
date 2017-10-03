@@ -29,26 +29,15 @@ public class GeneratorTest {
         Random random = new Random();
         LocalDateTime StartTime = LocalDateTime.now();
 
-        Patient randomPatient = generator.PatientGenerator(StartTime, 480);
+        Patient randomPatient = generator.PatientGenerator(StartTime, Patient.MAX_TIME);
         for(int i = 0; i < 50; i++){
             pqueue.insert(randomPatient);
+            System.out.println(randomPatient.UrgencyLevel);
+            System.out.println(randomPatient.ArriveTime);
+            System.out.println(randomPatient.TreatmentTime + "\n");
             int duration = randomPatient.TreatmentTime;
             randomPatient = generator.PatientGenerator(randomPatient.ArriveTime.plusMinutes(duration), duration);
         }
-
-        List<Patient> forward;
-        forward = pqueue.testForwardTraversal();
-        Iterator<Patient> iter = forward.iterator();
-
-        System.out.println("Forward traverse:");
-        Patient patientTraverse;
-        while (iter.hasNext()) {
-            patientTraverse = iter.next();
-            System.out.println(patientTraverse.UrgencyLevel);
-            System.out.println(patientTraverse.ArriveTime);
-            System.out.println(patientTraverse.TreatmentTime);
-        }
-
 
     }
 
