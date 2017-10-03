@@ -16,12 +16,12 @@ public class Generator {
 
     /**
      * @return the random generated patient
-     * given a start time and duration, generate a time that is starttime + (0, duration)
+     * given a start time and duration, generate a time that is start time + random(0, duration)
      */
     public Patient PatientGenerator(LocalDateTime localTime, int duration) throws Exception {
         Random random = new Random();
-        int Urgency = random.nextInt(11);
-        int RandomTreatment = random.nextInt(Patient.MAX_TIME);
+        int Urgency = random.nextInt(Patient.MAX_Urgency + 1);
+        int RandomTreatment = random.nextInt(Patient.MAX_Treatment);
         int minuteDuration = random.nextInt(duration + 1);
 
         LocalDateTime RandomTime = localTime.plusMinutes(minuteDuration);
