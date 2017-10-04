@@ -14,6 +14,7 @@ public class Simulator {
     private static MyPriorityQueue<Room> EmptyRoomQueue = new MyPriorityQueue<Room>();
     private static MyPriorityQueue<Room> OperateRoomQueue = new MyPriorityQueue<Room>();
     private static MyPriorityQueue<PatientInRoom> OperatePatientQueue = new MyPriorityQueue<PatientInRoom>();
+
     private final static int MAX_TIME = 480;
     private final static int newPatientInfo = 1;
     private final static int operatePatientInfo = 2;
@@ -73,12 +74,14 @@ public class Simulator {
      */
     public static void getOutofHospital(){
         //let the patient out of queue
-        OperatePatientQueue.remove();
+        PatientInRoom patientToGo = OperatePatientQueue.remove();
 
         //let the room empty again
-        Room emptyRoom = OperateRoomQueue.remove();
-        EmptyRoomQueue.insert(emptyRoom);
+        Room emptyRoom = patientToGo.room;
 
+        //insert empty room into empty room queue and remove it from operate queue
+        EmptyRoomQueue.insert(emptyRoom);
+        OperateRoomQueue.PQ.remove(emptyRoom);
     }
 
     /**
@@ -130,7 +133,6 @@ public class Simulator {
                 PatientQueue.insert(RandomPatient);
                 printInfo(RandomPatient, newPatientInfo);
             }
-
 
             if(!EmptyRoomQueue.isEmpty() && !PatientQueue.isEmpty()){
                 printInfo(PatientQueue.front(), operatePatientInfo);
